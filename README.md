@@ -5,6 +5,10 @@
 yarn add @react-navigation/native yarn add @react-navigation/stack react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
 
+```bash
+yarn add @react-navigation/bottom-tabs
+```
+
 To finalize installation of react-native-gesture-handler, add the following at the top (make sure it's at the top and there's nothing else before it) of your entry file, such as ```index.js``` or ```App.js```:
 
 ```bash 
