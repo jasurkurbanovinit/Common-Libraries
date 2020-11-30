@@ -66,6 +66,45 @@ For example App.tsx
 
 ## 5) Run `yarn tsc` to type-check your new TypeScript files.
 
+# Install Firebase To React Native Project
+```bash
+# Using npm
+npm install --save @react-native-firebase/app
+
+# Using Yarn
+yarn add @react-native-firebase/app
+```
+*The `@react-native-firebase/app` module must be installed before using any other Firebase service.*
+
+## Android Setup
+On the Firebase console, add a new Android application and enter your projects details. The "Android package name" must match your local projects package name which can be found inside of the manifest tag within the `/android/app/src/main/AndroidManifest.xml` file within your project.
+
+### Generating Android credentials
+
+The debug signing certificate is optional to use Firebase with your app, but is required for Dynamic Links, Invites and Phone Authentication. 
+To generate a certificate run 
+```bash 
+ cd androidx && ./gradlew signingReport 
+```
+and copy the SHA1 from the debug key. This generates two variant keys. You can copy the `'SHA1'` that belongs to the `debugAndroidTest` variant key option.
+
+Download the `google-services.json` file and place it inside of your project at the following location: `/android/app/google-services.json`.
+
+## Configure Firebase with Android credentials
+
+To allow Firebase on Android to use the credentials, the `google-services` plugin must be enabled on the project. 
+This requires modification to two files in the Android directory.
+
+First, add the `google-services` plugin as a dependency inside of your `/android/build.gradle file`:
+```bash
+buildscript {
+  dependencies {
+    // ... other dependencies
+    classpath 'com.google.gms:google-services:4.3.3' // Add this line ---
+  }
+}
+```
+
 To finalize installation of react-native-gesture-handler, add the following at the top (make sure it's at the top and there's nothing else before it) of your entry file, such as ```index.js``` or ```App.js```:
 
 ```bash 
