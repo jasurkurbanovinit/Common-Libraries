@@ -14,6 +14,14 @@ yarn add @react-navigation/bottom-tabs
 yarn add @react-navigation/material-top-tabs react-native-tab-view
 ```
 
+# Getting Started with TypeScript
+
+You can use the TypeScript template:
+
+```bash
+npx react-native init MyApp --template react-native-template-typescript
+```
+
 To finalize installation of react-native-gesture-handler, add the following at the top (make sure it's at the top and there's nothing else before it) of your entry file, such as ```index.js``` or ```App.js```:
 
 ```bash 
