@@ -22,6 +22,50 @@ You can use the TypeScript template:
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
+# Add Typescript To Existing Project 
+## 1) Add TypeScript and the types for React Native and Jest to your project.
+```bash
+yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+```
+
+## 2) Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
+```bash
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}
+```
+
+## 3) Create a `jest.config.js` file to configure Jest to use TypeScript
+```bash
+module.exports = {
+  preset: 'react-native',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+};
+```
+
+## 4) Rename a JavaScript file to be `*.tsx`.
+For example App.tsx
+*You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.*
+
+## 5) Run `yarn tsc` to type-check your new TypeScript files.
+
 To finalize installation of react-native-gesture-handler, add the following at the top (make sure it's at the top and there's nothing else before it) of your entry file, such as ```index.js``` or ```App.js```:
 
 ```bash 
